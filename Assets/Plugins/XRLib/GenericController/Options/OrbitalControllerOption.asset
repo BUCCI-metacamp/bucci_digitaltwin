@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d55d555ae3a31a439ca5986c6199986, type: 3}
+  m_Name: OrbitalControllerOption
+  m_EditorClassIdentifier: 
+  _orthographic: 0
+  _moveSensivity: 0.05
+  _zoomSensivity: 10
+  _rotateSensivity: 10
+  _moveSpeed: 1
+  _zoomSpeed: 5
+  _rotateSpeed: 20
+  _fieldOfView: 60
+  _moveLimit: 0
+  _rotateLimit: 0
+  _azimuthRotateLimit: 0
+  _elevationRotateLimit: 0
+  elevationSensivity: 2
+  azimuthSensivity: 2
+  maxElevation: 90
+  minElevation: 0
+  maxDistance: 1
+  minDistance: 0.1
+  moveClamper: 0.29788926
+  originDistance: 1
+  originElevation: 26
+  originAzimuth: 270
+  originTargetPos: {x: 1.6129999, y: 0.85800004, z: 8.918}
+  originTargetRot: {x: -0, y: 0, z: 0}
+  currentElevation: 41.599937
+  currentAzimuth: 270.60016
+  currentDistance: 0.3011688
+  target: {fileID: 0}

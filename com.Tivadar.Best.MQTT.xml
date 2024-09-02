@@ -1,0 +1,1133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>com.Tivadar.Best.MQTT</name>
+    </assembly>
+    <members>
+        <member name="T:Best.MQTT.ApplicationMessage">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901106
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.PacketId">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901108
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.SubscriptionId">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901117
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.IsDuplicate">
+            <summary>
+            Set to true if it's not the first ocassion the broker sent this application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901102"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.QoS">
+            <summary>
+            QoS this application message sent with.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901103"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.Retain">
+            <summary>
+            Set to true if this is a retained application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901104"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.Topic">
+            <summary>
+            The topic's name this application message is publish to.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.PayloadFormat">
+            <summary>
+            Payload type (binary or text).
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.ExpiryInterval">
+            <summary>
+            Expiry interval of the application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.TopicAlias">
+            <summary>
+            Topic alias index the broker used.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901113"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.ResponseTopic">
+            <summary>
+            Topic name where the publisher waiting for a response to this application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.CorrelationData">
+            <summary>
+            Arbitrary data sent with the application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.UserProperties">
+            <summary>
+            Key-value pairs sent with the application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901116"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.ContentType">
+            <summary>
+            Arbitrary value set by the publisher.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118"/>
+        </member>
+        <member name="F:Best.MQTT.ApplicationMessage.Payload">
+            <summary>
+            Payload of the application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901119"/>
+        </member>
+        <member name="T:Best.MQTT.SupportedTransports">
+            <summary>
+            Supported transports that can be used to connect with.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.SupportedTransports.TCP">
+            <summary>
+            Transport over raw TCP.
+            </summary>
+            <remarks>
+            NOT available under WebGL.
+            </remarks>
+        </member>
+        <member name="F:Best.MQTT.SupportedTransports.WebSocket">
+            <summary>
+            Transport using WebSocket connections.
+            </summary>
+            <remarks>
+            Available on all supported platforms!
+            </remarks>
+        </member>
+        <member name="T:Best.MQTT.ConnectionOptions">
+             <summary>
+             Connection related options to pass to the MQTTClient.
+             </summary>
+             <example>
+             Simple example on how to create a connection:
+             <code>
+             ConnectionOptions options = new ConnectionOptions
+             {
+                 Host = "localhost",
+                 Port = 1883,
+                 ProtocolVersion = SupportedProtocolVersions.MQTT_3_1_1
+             };
+            
+             var client = new MQTTClient(options);
+             </code>
+             </example>
+        </member>
+        <member name="P:Best.MQTT.ConnectionOptions.Host">
+            <summary>
+            Host name or IP address of the broker.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.ConnectionOptions.Port">
+            <summary>
+            Port number where the broker is listening on.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.ConnectionOptions.UseTLS">
+            <summary>
+            Whether to use a secure protocol (TLS over TCP or wss://).
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.ConnectionOptions.Transport">
+            <summary>
+            Selected transport to connect with.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.ConnectionOptions.Path">
+            <summary>
+            Optional path for websocket, its default is "/mqtt".
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.ConnectionOptions.ProtocolVersion">
+            <summary>
+            The protocol version that the plugin has to use to connect with to the server.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.ConnectionOptionsBuilder">
+            <summary>
+            Builder class to help creating <see cref="T:Best.MQTT.ConnectionOptions"/> instances.
+            </summary>
+            <example>
+            The following example creates a <see cref="T:Best.MQTT.ConnectionOptions"/> to connect to localhost on port 1883 using the TCP transport and MQTT protocol version v3.1.1.
+            <code>
+            var options = new ConnectionOptionsBuilder()
+                    .WithTCP("localhost", 1883)
+                    .WithProtocolVersion(SupportedProtocolVersions.MQTT_3_1_1)
+                    .Build();
+            
+                var client = new MQTTClient(options);
+            </code>
+            </example>
+            
+            <example>
+            This is the same as the previous example, but the builder creates the <see cref="T:Best.MQTT.MQTTClient"/> too.
+            <code>
+            var client = new ConnectionOptionsBuilder()
+                    .WithTCP("localhost", 1883)
+                    .WithProtocolVersion(SupportedProtocolVersions.MQTT_3_1_1)
+                    .CreateClient();
+            </code>
+            </example>
+        </member>
+        <member name="M:Best.MQTT.ConnectionOptionsBuilder.WithTCP(System.String,System.Int32)">
+            <summary>
+            Add options for a TCP connection.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.ConnectionOptionsBuilder.WithWebSocket(System.String,System.Int32)">
+            <summary>
+            Add options for a WebSocket connection.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.ConnectionOptionsBuilder.WithTLS">
+            <summary>
+            When used MQTTClient going to use TLS to secure the communication.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.ConnectionOptionsBuilder.WithPath(System.String)">
+            <summary>
+            Used by the WebSocket transport to connect to the given path.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.ConnectionOptionsBuilder.WithProtocolVersion(Best.MQTT.SupportedProtocolVersions)">
+            <summary>
+            The protocol version that the plugin has to use to connect with to the server.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.ConnectionOptionsBuilder.CreateClient">
+            <summary>
+            Creates an MQTTClient object with the already set options.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.ConnectionOptionsBuilder.Build">
+            <summary>
+            Creates the final ConnectionOptions instance.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.MQTTClient">
+            <summary>
+            Represents an MQTT client, providing capabilities to connect to MQTT brokers,
+            send and receive messages, and handle various MQTT events. This class is the central
+            component for managing MQTT communications in an MQTT capable application.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.MQTTClient.Options">
+            <summary>
+            Connection related options.
+            </summary>
+        </member>
+        <member name="E:Best.MQTT.MQTTClient.OnConnected">
+            <summary>
+            Called when the client successfully connected to the broker.
+            </summary>
+        </member>
+        <member name="E:Best.MQTT.MQTTClient.OnServerConnectAckMessage">
+            <summary>
+            Called when the broker acknowledged the client's connect packet.
+            </summary>
+        </member>
+        <member name="E:Best.MQTT.MQTTClient.OnApplicationMessage">
+            <summary>
+            Called for every application message sent by the broker.
+            </summary>
+        </member>
+        <member name="E:Best.MQTT.MQTTClient.OnAuthenticationMessage">
+            <summary>
+            Called when an authentication packet is received from the broker as part of the extended authentication process.
+            </summary>
+        </member>
+        <member name="E:Best.MQTT.MQTTClient.OnError">
+            <summary>
+            Called when an unexpected, unrecoverable error happens. After this event an OnDisconnect event is called too.
+            </summary>
+        </member>
+        <member name="E:Best.MQTT.MQTTClient.OnDisconnect">
+            <summary>
+            Called after the client disconnects from the broker.
+            </summary>
+        </member>
+        <member name="E:Best.MQTT.MQTTClient.OnStateChanged">
+            <summary>
+            Called for every internal state change of the client.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.MQTTClient.State">
+            <summary>
+            Current state of the client. State changed events are emitted through the OnStateChanged event.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.MQTTClient.NegotiatedOptions">
+            <summary>
+            Options negotiated with the broker.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.MQTTClient.Session">
+            <summary>
+            Session instance to persist QoS data.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.MQTTClient.Context">
+            <summary>
+            Context of the MQTTClient and all child instances (like its transport, etc.) that can produce log outputs.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.IncrementAndReplenishQueue">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901251
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.HandlePublishCompletePacket(Best.MQTT.Packets.Packet)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901151
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.HandlePublishReceivedPacket(Best.MQTT.Packets.Packet)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901131
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.HandlePublishReleasePacket(Best.MQTT.Packets.Packet)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.HandlePublishPacket(Best.MQTT.Packets.Packet)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901100
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.HandleDisconnectPacket(Best.MQTT.Packets.Packet)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901205
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.MessageDeliveryRetry">
+            <summary>
+            When a Client reconnects with Clean Start set to 0 and a session is present,
+            both the Client and Server MUST resend any unacknowledged PUBLISH packets (where QoS > 0) and PUBREL packets using their original Packet Identifiers. 
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901238
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.BeginPacketBuffer">
+            <summary>
+            With the use of BeginPacketBuffer and EndPacketBuffer sent messages can be buffered and sent in less network packets. It supports nested Begin-EndPacketBuffer calls.
+            </summary>
+            <remarks>Instead of using <see cref="M:Best.MQTT.MQTTClient.BeginPacketBuffer"/> and <see cref="M:Best.MQTT.MQTTClient.EndPacketBuffer"/> directly, use the <see cref="T:Best.MQTT.PacketBufferHelper"/> instead!</remarks>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.EndPacketBuffer">
+            <summary>
+            Call this after a BeginPacketBuffer.
+            </summary>
+            <remarks>Instead of using <see cref="M:Best.MQTT.MQTTClient.BeginPacketBuffer"/> and <see cref="M:Best.MQTT.MQTTClient.EndPacketBuffer"/> directly, use the <see cref="T:Best.MQTT.PacketBufferHelper"/> instead!</remarks>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.CreateConnectPacketBuilder">
+            <summary>
+            Creates and returns with a ConnectPacketBuilder instance.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.BeginConnect(Best.MQTT.ConnectPacketBuilderDelegate,System.Threading.CancellationToken)">
+            <summary>
+            Starts the connection process to the broker. It's a non-blocking method. ConnectPacketBuilderCallback is a function that will be called after a successfully transport connection to negotiate protocol details.
+            </summary>
+            <example>
+            Connect without any customization.
+            <code>
+            client.BeginConnect((client, builder) => builder);
+            </code>
+            </example>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.ConnectAsync(Best.MQTT.ConnectPacketBuilderDelegate,System.Threading.CancellationToken)">
+            <summary>
+            Starts connecting to the broker. 
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.CreateDisconnectPacketBuilder">
+            <summary>
+            Creates and returns with a DisconnectPacketBuilder instance.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.CreateSubscriptionBuilder(System.String)">
+            <summary>
+            Creates and returns with a SubscribePacketBuilder. 
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.CreateBulkSubscriptionBuilder">
+            <summary>
+            Creates and returns with a BulkSubscribePacketBuilder instance.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.CreateUnsubscribePacketBuilder(System.String)">
+            <summary>
+            Creates and returns with an UnsubscribePacketBuilder instance.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.CreateBulkUnsubscribePacketBuilder">
+            <summary>
+            Creates and returns with a BulkUnsubscribePacketBuilder instance.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.AddTopicAlias(System.String)">
+            <summary>
+            Adds a new topic alias.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.CreateApplicationMessageBuilder(System.String)">
+            <summary>
+            Creates and returns with an ApplicationMessagePacketBuilder instance.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClient.CreateAuthenticationPacketBuilder">
+            <summary>
+            Creates and returns with an AuthenticationPacketBuilder instance.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.ClientStates">
+            <summary>
+            Possible states of the MQTTClient.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ClientStates.Initial">
+            <summary>
+            State right after constructing the MQTTClient.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ClientStates.TransportConnecting">
+            <summary>
+            Connection process initiated.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ClientStates.TransportConnected">
+            <summary>
+            Transport successfully connected to the broker.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ClientStates.Connected">
+            <summary>
+            Connect packet sent and acknowledgement received.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ClientStates.Disconnecting">
+            <summary>
+            Disconnect process initiated.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.ClientStates.Disconnected">
+            <summary>
+            Client disconnected from the broker. This could be the result either of a graceful termination or an unexpected error.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.ConnectBag">
+            <summary>
+            Private class to hold connection related information. These information are needed only while connecting.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.MQTTClientBuilder">
+            <summary>
+            Builder class to make MQTTClient creation easier.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.MQTTClientBuilder.CreateClient">
+            <summary>
+            Creates an MQTTClient instance.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.NegotiatedOptions">
+            <summary>
+            Options that the client and server must agree on. Values that the client would like to use are the root fields (Client*) and the server's own are in the ServerOptions.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.NegotiatedOptions.ClientKeepAlive">
+            <summary>
+            Client set keep-alive time in seconds.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.NegotiatedOptions.ClientMaximumPacketSize">
+            <summary>
+            Maximum Packet Size the Client is willing to accept
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.NegotiatedOptions.ClientReceiveMaximum">
+            <summary>
+            The Client uses this value to limit the number of QoS 1 and QoS 2 publications that it is willing to process concurrently.
+            There is no mechanism to limit the QoS 0 publications that the Server might try to send.
+            The value of Receive Maximum applies only to the current Network Connection.
+            If the Receive Maximum value is absent then its value defaults to 65,535.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.NegotiatedOptions.ServerOptions">
+            <summary>
+            It's available only after the State is changed to Connected!
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.PacketBufferHelper">
+            <summary>
+            Helper class to help safely use MQTTClient's BeginPacketBuffer-EndPacketBuffer pairs in a using.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder">
+            <summary>
+            Builder to create an application message. <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901100"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithDuplicate">
+            <summary>
+            Set the duplicate flag. (Not really used, it's set directly in MessageDeliveryRetry function)
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901102"/>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithPacketId(System.UInt16)">
+            <summary>
+            Send the packet with a packet ID required for > QoS 0.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithQoS(Best.MQTT.Packets.QoSLevels)">
+            <summary>
+            Build the packet with the given QoS level.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithRetain(System.Boolean)">
+            <summary>
+            Build the packet with the given retain flag.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithTopicName(System.String)">
+            <summary>
+            Build the packet with the given topic name.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithPayloadFormatIndicator(Best.MQTT.Packets.PayloadTypes)">
+            <summary>
+            Build the packet with the given payload format indicator.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111"/>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithMessageExpiryInterval(System.UInt32)">
+            <summary>
+            Set the application message's expiry interval (it's in seconds).
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112"/>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithTopicAlias(System.UInt16)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901113
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithResponseTopic(System.String)">
+            <summary>
+            Set the application message's response topic.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114"/>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithCorrelationData(System.Byte[])">
+            <summary>
+            Optional data sent with the application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115"/>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithUserProperty(System.String,System.String)">
+            <summary>
+            Optional key value pairs that will be sent with the application message.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901116"/>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithSubscriptionIdentifier(System.UInt32)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901117
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithContentType(System.String)">
+            <summary>
+            Optional Content-Type value to help process the application message's payload.
+            </summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118"/>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithPayload(System.Byte[])">
+            <summary>
+            Set the application message's payload.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.WithPayload(System.String)">
+            <summary>
+            Set the application message's payload. It also sets the payload format indicator to PayloadTypes.UTF8.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ApplicationMessagePacketBuilder.BeginPublish">
+            <summary>
+            Begin sending the application message to the broker.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.PublishPropertyBuilder">
+            <summary>
+            Internal struct to aid publish-property building.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.PublishPropertyBuilder.WithPayloadFormatIndicator(Best.MQTT.Packets.PayloadTypes)">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.PublishPropertyBuilder.WithMessageExpiryInterval(System.UInt32)">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.PublishPropertyBuilder.WithTopicAlias(System.UInt16)">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901113"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.PublishPropertyBuilder.WithResponseTopic(System.String)">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.PublishPropertyBuilder.WithCorrelationData(System.Byte[])">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.PublishPropertyBuilder.WithUserProperty(System.String,System.String)">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901116"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.PublishPropertyBuilder.WithSubscriptionIdentifier(System.UInt32)">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901117"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.PublishPropertyBuilder.WithContentType(System.String)">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118"/>
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.AuthenticationPacketBuilder">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901217
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.SubscribePacketBuilder">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901161
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.BulkSubscribePacketBuilder">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901161
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.BulkUnsubscribePacketBuilder">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901179
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.LastWillBuilder">
+            <summary>
+            TODO: 
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.LastWillBuilder.WithTopic(System.String)">
+            <summary>
+            Set the topic the last-will will be published.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.LastWillBuilder.WithPayload(System.Byte[])">
+            <summary>
+            Binary payload of the last-will.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.LastWillBuilder.WithPayload(System.String)">
+            <summary>
+            Textual payload of the last-will. It also sets the Payload Format Indicator to UTF8.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.LastWillBuilder.WithQoS(Best.MQTT.Packets.QoSLevels)">
+            <summary>
+            QoS level of the last-will.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.LastWillBuilder.WithRetain(System.Boolean)">
+            <summary>
+            Retain flag.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.LastWillBuilder.WithDelayInterval(System.UInt32)">
+            <summary>
+            Delay before the broker will publish the last-will
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.LastWillBuilder.WithPayloadFormatIndicator(Best.MQTT.Packets.PayloadTypes)">
+            <summary>
+            Type of the payload, binary or textual.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.ConnectPacketBuilder">
+            <summary>
+            TODO: add detailed description
+            </summary>
+            <example>
+            In this example the `ConnectPacketBuilderCallback` returns with the builder received as its second parameter without modifying it. 
+            In the callback a new `ConnectPacketBuilder` can be created, but it's easier just to use the one already passed in the parameter.
+            <code>
+            var options = new ConnectionOptionsBuilder()
+                    .WithTCP("test.mosquitto.org", 1883)
+                    .Build();
+                client = new MQTTClient(options);
+                client.BeginConnect(ConnectPacketBuilderCallback);
+            
+            ConnectPacketBuilder ConnectPacketBuilderCallback(MQTTClient client, ConnectPacketBuilder builder)
+            {
+                return builder;
+            }
+            </code>
+            </example>
+            <example>
+            Add UserName and Password
+            <code>
+            ConnectPacketBuilder ConnectPacketBuilderCallback(MQTTClient client, ConnectPacketBuilder builder)
+            {
+                return builder.WithUserNameAndPassword("username", "password");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithCleanStart">
+            <summary>
+            This specifies whether the connection starts a new session or is a continuation of an existing session.
+            When `WithCleanStart` is used, both the broker and client deletes theirs previously stored session data. 
+            The client continues to use its client id.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithKeepAlive(System.UInt16)">
+            <summary>
+            Maximum seconds that can be pass between sending two packets to the broker. If no other packets are sent, the plugin will send ping requests to check and keep the connection alive.
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901045"/>
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithLastWill(Best.MQTT.Packets.Builders.LastWillBuilder)">
+            <summary>
+            A last will can be added to the connection. 
+            The will message will be published by the broker after the network connection is subsequently closed and either the Will Delay Interval has elapsed or the session ends, 
+            unless the will message has been deleted by the broker on receipt of a DISCONNECT packet with Reason Code `NormalDisconnection` or a new network connection for the ClientID is opened before the Will Delay Interval has elapsed.
+            </summary>
+            <remarks>
+            Situations in which the will message is published include, but are not limited to:
+            <list type="bullet">
+                <item><description>An I/O error or network failure detected by the broker.</description></item>
+                <item><description>The client fails to communicate within the Keep Alive time.</description></item>
+                <item><description>The client closes the network connection without first sending a DISCONNECT packet with a Reason Code `NormalDisconnection`.</description></item>
+                <item><description>The broker closes the network connection without first receiving a DISCONNECT packet with a Reason Code `NormalDisconnection`.</description></item>
+            </list>
+            </remarks>
+            <param name="lastWillBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithClientID(System.String)">
+            <summary>
+            With this call the plugin's automatic client id generation can be overwritten. If not exists the client creates a session to store its state. If a session is available for this clientId, it loads and uses it.
+            </summary>
+            <remarks>When neither the `WithClientID` or `WithSession` are used, first time connecting to the broker the plugin generates a unique id and will use it for consecutive connections.</remarks>
+            <param name="clientId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithSession(Best.MQTT.Session)">
+            <summary>
+            
+            </summary>
+            <remarks>When neither the `WithClientID` or `WithSession` are used, first time connecting to the broker the plugin generates a unique id and will use it for consecutive connections.</remarks>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithUserName(System.String)">
+            <summary>
+            Add a user name for authentication purposes.
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithPassword(System.String)">
+            <summary>
+            Add a password for authentication purposes.
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithUserNameAndPassword(System.String,System.String)">
+            <summary>
+            Add both user name and password for authentication purposes.
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithSessionExpiryInterval(System.UInt32)">
+            <summary>
+            When the Session expires the client and broker need not process the deletion of state atomically.
+            If the Session Expiry Interval is absent the value <c>0</c> is used. 
+            If it is set to <c>0</c>, or is absent, the session ends when the network connection is closed. If the *Session Expiry Interval* is <c>0xFFFFFFFF</c> (<c>uint.MaxValue</c>), the session does not expire.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            <item><description>A client that only wants to process messages while connected will call <c>WithCleanStart</c> and set the *Session Expiry Interval* to <c>0</c>. It will not receive Application Messages published before it connected and has to subscribe afresh to any topics that it is interested in each time it connects.</description></item>
+            <item><description>A client might be connecting to a broker using a network that provides intermittent connectivity. This client can use a short *Session Expiry Interval* so that it can reconnect when the network is available again and continue reliable message delivery. If the client does not reconnect, allowing the session to expire, then Application Messages will be lost.</description></item>
+            <item><description>When a client connects with a long *Session Expiry Interval*, it is requesting that the broker maintain its MQTT session state after it disconnects for an extended period. Clients should only connect with a long *Session Expiry Interval* if they intend to reconnect to the broker at some later point in time. When a client has determined that it has no further use for the session it should disconnect with a *Session Expiry Interval* set to <c>0</c>.</description></item>
+            </list>
+            </remarks>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithReceiveMaximum(System.UInt16)">
+            <summary>
+            The client uses this value to limit the number of <c>QoS 1</c> and <c>QoS 2</c> publications that it is willing to process concurrently. 
+            There is no mechanism to limit the <c>QoS 0</c> publications that the broker might try to send.
+            The value of Receive Maximum applies only to the current Network Connection. 
+            If the Receive Maximum value is absent then its value defaults to <c>65,535</c>.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithMaximumPacketSize(System.UInt32)">
+            <summary>
+             The maximum packet size the client is willing to accept.
+             If the maximum packet size is not present, no limit on the packet size is imposed beyond the limitations in the protocol as a result of the remaining length encoding and the protocol header sizes.
+            </summary>
+            <param name="maximumPacketSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithTopicAliasMaximum(System.UInt16)">
+            <summary>
+            This value indicates the highest value that the client will accept as a topic alias sent by the broker. The client uses this value to limit the number of topic aliases that it is willing to hold on this connection. If topic alias maximum is absent or zero, the broker will not send any topic aliases to the client.
+            </summary>
+            <remarks>If not called, the plugin will use `ushort.MaxValue`(65535). To disable receiving topic aliases from the broker call it with 0.</remarks>
+            <param name="maximum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithRequestResponseInformation(System.Boolean)">
+            <summary>
+            When called with `true` the client request the broker to return Response Information in the ServerConnectAckMessage. 
+            </summary>
+            <remarks>The broker can choose not to include <c>Response Information</c> in the connect ack message, even if the client requested it!</remarks>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithRequestProblemInformation(System.Boolean)">
+            <summary>
+            The client can use this function to indicate whether the ReasonString or UserProperties are sent in the case of failures. 
+            If the value of request problem information is `false`, the broker may return a `ReasonString` or `UserProperties` on a *connect acknowledgement* or* disconnect* packet,
+            but must not send a `ReasonString` or `UserProperties` on any packet other than* publish*, *connect acknowledgement* or* disconnect*. 
+            If this value is `true`, the broker may return a `ReasonString` or `UserProperties` on any packet where it is allowed.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithUserProperty(System.String,System.String)">
+            <summary>
+            User Properties on the connect packet can be used to send connection related properties from the client to the broker. 
+            The meaning of these properties is not defined by this specification.
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithExtendedAuthenticationMethod(System.String)">
+            <summary>
+            Set the name of the authentication method used for extended authentication.
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Best.MQTT.Packets.Builders.ConnectPacketBuilder.WithExtendedAuthenticationData(System.Byte[])">
+            <summary>
+            Set the binary data containing authentication data for extended authentication. 
+            The contents of this data are defined by the authentication method.
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.PublishAckBuilder">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901121
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.PublishCompletePacketBuilder">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901151
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.PublishReceivedPacketBuilder">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901131
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Builders.PublishReleasePacketBuilder">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901141
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.QoSLevels">
+            <summary>
+            Quality of Service Levels
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901103"/>
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.QoSLevels.AtMostOnceDelivery">
+            <summary>
+            The message is delivered according to the capabilities of the underlying network. No response is sent by the receiver and no retry is performed by the sender. The message arrives at the receiver either once or not at all.
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901235"/>
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.QoSLevels.AtLeastOnceDelivery">
+            <summary>
+            This Quality of Service level ensures that the message arrives at the receiver at least once. 
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236"/>
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.QoSLevels.ExactlyOnceDelivery">
+            <summary>
+            This is the highest Quality of Service level, for use when neither loss nor duplication of messages are acceptable. There is an increased overhead associated with QoS 2.
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901237"/>
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.QoSLevels.Reserved">
+            <summary>
+            Must not be used!
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.RetainHandlingOptions">
+            <summary>
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901169"/>
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.RetainHandlingOptions.SendWhenSubscribe">
+            <summary>
+            Send retained messages at the time of the subscribe.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.RetainHandlingOptions.SendWhenSubscribeIfSubscriptionDoesntExist">
+            <summary>
+            Send retained messages at subscribe only if the subscription does not currently exist.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.RetainHandlingOptions.DoNotSendRetainedMessages">
+            <summary>
+            Do not send retained messages at the time of the subscribe
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.Readers.PacketReaderImplementations">
+            <summary>
+            Static class that contains helper functions to read various packet types.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadConnectAckPacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901074
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadDisconnectPacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901205
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadSubscribeAckPacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901171
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadUnsubscribeAckPacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901187
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadPublishPacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901100
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadPublishReleasePacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901131
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadPublishReceivedPacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901131
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadPublishCompletePacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901151
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadPublishAckPacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901121
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.Packets.Readers.PacketReaderImplementations.ReadAuthPacket(System.IO.Stream,Best.MQTT.Packets.Utils.BitField,Best.MQTT.MQTTClient)">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901217
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Packets.ServerConnectAckMessage">
+            <summary>
+            Container for a server-sent Connect acknowledgement message.
+            <see href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901074"/>
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.ServerConnectAckMessage.SessionPresent">
+            <summary>
+            True if the server could resume to a previous session.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.ServerConnectAckMessage.ReceiveMaximum">
+            <summary>
+            The Server uses this value to limit the number of QoS 1 and QoS 2 publications that it is willing to process concurrently for the Client.
+            It does not provide a mechanism to limit the QoS 0 publications that the Client might try to send.
+            If the Receive Maximum value is absent, then its value defaults to 65,535.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.ServerConnectAckMessage.MaximumPacketSize">
+            <summary>
+            Maximum Packet Size the Server is willing to accept
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Packets.ServerConnectAckMessage.AssignedClientIdentifier">
+            <summary>
+            Server assigned ClientId.
+            </summary>
+            <remarks>The Client Identifier which was assigned by the Server because a zero length Client Identifier was found in the CONNECT packet.</remarks>
+        </member>
+        <member name="T:Best.MQTT.SessionDef">
+            <summary>
+            For ClientId - Encoded ClientId mapping.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.SessionDef.Encoded">
+            <summary>
+            Base64 encoded client id used for directory naming.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.SessionStoreDef">
+            <summary>
+            Contains information about one host: the last used SessionId, and all the known, previously used session Ids.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.SessionHelper">
+            <summary>
+            Helper class to manage sessions.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.SessionHelper.GetRootSessionsDirectory(System.String)">
+            <summary>
+            Returns with the root directory of the sessions
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.SessionHelper.CreateNullSession(System.String)">
+            <summary>
+            Creates and returns with a Null session.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.SessionHelper.GetSessions(System.String)">
+            <summary>
+            Returns with all the current sessions.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.SessionHelper.HasAny(System.String)">
+            <summary>
+            Returns true if there's at least one stored session for the given host.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.SessionHelper.Get(System.String,System.String)">
+            <summary>
+            Loads the session with the matching clientId, or creates a new one with this id.
+            </summary>
+        </member>
+        <member name="M:Best.MQTT.SessionHelper.Delete(System.String,Best.MQTT.Session)">
+            <summary>
+            Delete session from the store and all of its related files.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Transports.SecureTCPTransport">
+            <summary>
+            Transport to use raw TCP connections with optional secure (TLS) layer use.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Transports.SecureTCPTransport._buffers">
+            <summary>
+            Queue for sending packets
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Transports.SecureTCPTransport._bufferAvailableEvent">
+            <summary>
+            Event to signal the sending thread.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Transports.Transport">
+            <summary>
+            Abstract base class for concreate transport implementations.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.Transports.Transport.State">
+            <summary>
+            State of the transport.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.Transports.Transport.Parent">
+            <summary>
+            Parent MQTTClient instance that the transport is created for.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.Transports.Transport.IncomingPackets">
+            <summary>
+            Received and parsed packets, sent by the server.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.Transports.Transport.ConnectCancellationToken">
+            <summary>
+            Optional <see cref="T:System.Threading.CancellationToken"/> for connection cancellation support.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.Transports.Transport.Context">
+            <summary>
+            Debug context of the transport.
+            </summary>
+        </member>
+        <member name="P:Best.MQTT.Transports.Transport.ReceiveStream">
+            <summary>
+            Intermediate stream holding incomplete packet bytes.
+            </summary>
+        </member>
+        <member name="F:Best.MQTT.Transports.Transport.transportEvents">
+            <summary>
+            Transport event queue generated on receive/send threads that must be processed on the main thread.
+            </summary>
+        </member>
+        <member name="T:Best.MQTT.Transports.WebSocketTransport">
+            <summary>
+            https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901285
+            </summary>
+        </member>
+        <member name="T:UnitySourceGeneratedAssemblyMonoScriptTypes_v1.MonoScriptData">
+            <summary>
+            Data is UTF-8 encoded strings
+            </summary>
+        </member>
+    </members>
+</doc>
